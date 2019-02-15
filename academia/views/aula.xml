@@ -1,0 +1,87 @@
+<openerp>
+    <data>
+
+        <menuitem id="academia_root" name="Academia" sequence="450"/>
+
+        <record id="view_academia_aula_form" model="ir.ui.view">
+            <field name="name">odoo.academia.aula.form</field>
+            <field name="model">odoo.academia.aula</field>
+            <field name="arch" type="xml">
+                <form string="Aula">
+                    <header>
+                        <field name="estado" widget="statusbar"/>
+                    </header>
+                    <sheet>
+                        <div class="oe_left" style="width: 100%">
+                            <div class="oe_inline" style="width: 47%; float: left; margin:0 3%">
+                                <group>
+                                    <field name="name"/>
+                                    <field name="id_profesor"/>
+                                    <field name="titulo" string="Titulo"/>
+                                    <field name="inicio"/>
+                                    <field name="fin"/>
+                                </group>
+                            </div>
+                            <div class="oe_inline" style="float: left; width: 47%; margin:0 3%">
+                                <group>
+                                    <field name="duracion"/>
+                                    <field name="plazas"/>
+                                    <field name="plazas_restantes"/>
+                                </group>
+                            </div>
+                        </div>
+                        <div>
+                            <div style="display: table; float: left; width: 47%; margin: 3%">
+                                <group>
+                                    <field name="tel" string="Teléfono"/>
+                                    <field name="email" string="Email"/>
+                                    <field name="periodo" string="Período"/>
+                                    <field name="estado" string="Estado"/>
+                                </group>
+                            </div>
+                        </div>
+
+                        <notebook>
+                            <page string="Estudiantes">
+                                <field name="id_estudiante"/>
+                            </page>
+                        </notebook>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="view_academia_aula_tree" model="ir.ui.view">
+            <field name="name">odoo.academia.aula.tree</field>
+            <field name="model">odoo.academia.aula</field>
+            <field name="arch" type="xml">
+                <tree string="Aula">
+                    <field name="name"/>
+                    <field name="id_profesor"/>
+                    <field name="inicio"/>
+                    <field name="fin"/>
+                    <field name="duracion"/>
+                    <field name="plazas"/>
+                    <field name="plazas_restantes"/>
+                    <field name="estado"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_academia_aula" model="ir.actions.act_window">
+            <field name="name">Aula</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">odoo.academia.aula</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="academia_submenu" name="Academia"
+                  parent="academia_root" sequence="1"/>
+
+        <menuitem id="academia_aula" name="Herramientas"
+                  parent="academia_submenu"
+                  action="action_academia_aula" sequence="1"/>
+
+    </data>
+</openerp>

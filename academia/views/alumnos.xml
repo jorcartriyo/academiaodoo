@@ -1,0 +1,21 @@
+<openerp>
+    <data>
+
+        <record model="ir.ui.view" id="alumno_instructor_form_view">
+            <field name="nombre">alumno.student</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='title']" position="after">
+                    <field name="estudiante"/>
+                </xpath>
+            </field>
+        </record>
+        <menuitem id="academia_submenu" name="Academia"
+                  parent="academia_root" sequence="1"/>
+
+        <menuitem id="academia_estudiante" name="Aula"
+                  parent="academia_aula"
+                  action="action_academia_aula" sequence="3"/>
+    </data>
+</openerp>
